@@ -29,7 +29,7 @@ pipeline {
                         "firstName": "Irsal",
                         "lastName": "Hamdi"
                     ]
-                    writeJSON(file: "data.json", data)
+                    writeJSON(file: "data.json", json:data)
                 }
 
                 echo 'Start Build'
