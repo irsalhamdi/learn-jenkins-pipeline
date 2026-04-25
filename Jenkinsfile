@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     environment {
             JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
             PATH = "${JAVA_HOME}/bin:${env.PATH}"
@@ -8,6 +9,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+
+                script{
+                    for(int i=0; i < 10; i++){
+                        echo("${i}")
+                    }
+                }
+
                 echo 'Start Build'
                 sh('./mvnw clean compile test')
                 echo('Finish Build')
