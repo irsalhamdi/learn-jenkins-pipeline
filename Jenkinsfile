@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
 
     environment {
             JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
@@ -8,9 +8,6 @@ pipeline {
 
     stages {
         stage('Build') {
-            agent {
-                node
-            }
 
             steps {
 
@@ -26,9 +23,6 @@ pipeline {
             }
         }
         stage('Test') {
-            agent {
-                node
-            }
 
             steps {
 
@@ -46,9 +40,6 @@ pipeline {
             }
         }
         stage('Deploy') {
-            agent {
-                node
-            }
 
             steps {
                 echo 'Hello Deploy 1'
