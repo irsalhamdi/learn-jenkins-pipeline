@@ -7,7 +7,25 @@ pipeline {
         AUTHOR = "irsalhamdi@gmail.com"
     }
 
+    parameters{
+        string(name: "NAME", defaultValue: "Guest", description: "What is your name ?")
+        text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me about yourself")
+        string(name: "DEPLOY", defaultValue: false, description: "Need to deploy ?")
+        text(name: "SOCIAL_MEDIA", choices: ['Instagram', 'Facebook', 'Twitter'], description: "Which social media that's you're using ?")
+        text(name: "SECRET", defaultValue: "", description: "Encrypt Key")
+    }
+
     stages {
+        stage('Parameter') {
+            steps{
+                echo "Hello, ${params.NAME}"
+                echo "Your description is, ${params.DESCRIPTION}"
+                echo "Your social media is, ${params.SOCIAL_MEDIA}"
+                echo "Need to deploy, ${params.DEPLOY}"
+                echo "Your secret is, ${params.SECRET}"
+            }
+        }
+
         stage('Prepare'){
 
             environment{
