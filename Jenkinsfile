@@ -89,6 +89,16 @@ pipeline {
                 echo("Deploy to ${TARGET_ENV}")
             }
         }
+        stage('Release') {
+            when {
+                expression {
+                    return params.DEPLOY
+                }
+            }
+            steps{
+                echo("Release it")
+            }
+        }
     }
 
     post {
