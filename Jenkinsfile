@@ -76,11 +76,17 @@ pipeline {
         }
         stage('Deploy') {
 
+            input{
+                message "Can we deploy ?"
+                ok "Yes, of course"
+                submitter "Irsal Hamdi"
+                parameters {
+                    choice(name: "TARGET_ENV", choices: ['DEV', 'QA', 'PROD'], description: 'Which environment you want to deploy ?')
+                }
+            }
+
             steps {
-                echo 'Hello Deploy 1'
-                sleep(5)
-                echo 'Hello Deploy 2'
-                echo 'Hello Deploy 3'
+                echo("Deploy to ${TARGET_ENV}")
             }
         }
     }
