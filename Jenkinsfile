@@ -2,14 +2,16 @@ pipeline {
     agent any
 
     environment {
-            JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
-            PATH = "${JAVA_HOME}/bin:${env.PATH}"
+        JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+        AUTHOR = "irsalhamdi@gmail.com"
     }
 
     stages {
         stage('Prepare'){
             steps{
                 echo("Start Job : ${env.JOB_NAME}")
+                echo("Author : ${AUTHOR}")
                 echo("Start Build : ${env.BUILD_NUMBER}")
                 echo("Branch Name : ${env.BRANCH_NAME}")
             }
