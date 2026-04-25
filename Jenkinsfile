@@ -9,9 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                node {
-                    label 'built-in'
-                }
+                node
             }
 
             steps {
@@ -29,9 +27,7 @@ pipeline {
         }
         stage('Test') {
             agent {
-                node{
-                    label 'built-in'
-                }
+                node
             }
 
             steps {
@@ -51,9 +47,7 @@ pipeline {
         }
         stage('Deploy') {
             agent {
-                node {
-                    label 'built-in'
-                }
+                node
             }
 
             steps {
